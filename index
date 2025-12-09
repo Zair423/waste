@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Waste Detection System</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- TensorFlow + COCO SSD -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.9.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>♻ Smart Waste</h2>
+        <button class="nav-btn" onclick="showPage('scanner')">Scanner</button>
+        <button class="nav-btn" onclick="showPage('records')">Records</button>
+        <button class="nav-btn" onclick="showPage('analytics')">Analytics</button>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+
+        <!-- Scanner Page -->
+        <section id="scanner" class="page active">
+            <h2>Camera Waste Scanner</h2>
+            <video id="camera" autoplay playsinline></video>
+            <canvas id="canvas"></canvas>
+
+            <div class="detected-container">
+                <h3>Detected Items</h3>
+                <ul id="detectedList"></ul>
+            </div>
+
+            <p class="tip">Click any detected item to SAVE it in Records.</p>
+        </section>
+
+        <!-- Records Page -->
+        <section id="records" class="page">
+            <h2>Saved Records</h2>
+            <ul id="recordsList"></ul>
+        </section>
+
+        <!-- Analytics Page -->
+        <section id="analytics" class="page">
+            <h2>Analytics</h2>
+
+            <div id="analyticsOutput"></div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
